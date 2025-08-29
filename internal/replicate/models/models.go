@@ -1,6 +1,6 @@
 package models
 
-import "nerualchechevica-bot/internal/replicate"
+import "reptiloid-go/internal/replicate"
 
 /*
 FluxSchnell is a fast model optimized for quick generation.

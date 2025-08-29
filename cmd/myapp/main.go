@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"nerualchechevica-bot/internal/replicate"
-	"nerualchechevica-bot/internal/replicate/models"
+	"reptiloid-go/internal/replicate"
+	"reptiloid-go/internal/replicate/models"
 	"os"
 
 	"github.com/joho/godotenv"
