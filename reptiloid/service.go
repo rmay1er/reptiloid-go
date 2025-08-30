@@ -9,15 +9,18 @@ import (
 	"net/http"
 )
 
+// NewClient creates a new client with the specified replicate model and API key.
 func NewClient[T any](model replicateModel[T], apikey string) *client[T] {
 	return &client[T]{model: model, apikey: apikey}
 }
 
+// NewReplicateModel creates a new replicate model with the given model ID.
 func NewReplicateModel[T any](id string) replicateModel[T] {
 	return replicateModel[T]{id: id}
 }
 
-
+// GenerateImage sends a request to generate an image based on the input parameters.
+// It constructs the HTTP POST request, adds necessary headers, and parses the response.
 func (c *client[T]) GenerateImage(input T) (responseOutput, error) {
 
 	// Получаем ID модели
