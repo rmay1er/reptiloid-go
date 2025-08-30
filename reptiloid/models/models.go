@@ -12,8 +12,10 @@ FluxDev is a model better suited for images containing text, though it is slight
 */
 var FluxDev = reptiloid.NewReplicateModel[FluxDevInput]("black-forest-labs/flux-dev")
 
-// FluxSchnellInput represents input parameters for the Flux Schnell model.
-// It contains various configuration options to control the image generation process.
+/*
+FluxSchnellInput represents input parameters for the Flux Schnell model.
+It contains various configuration options to control the image generation process.
+*/
 type FluxSchnellInput struct {
 	// Prompt is the primary text input that guides image generation. Use clear and specific language to achieve the best results.
 	Prompt string `json:"prompt"`
