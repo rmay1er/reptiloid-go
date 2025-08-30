@@ -1,31 +1,22 @@
-package replicate
+package reptiloid
 
 import (
 	"bytes"
 	"encoding/json/v2"
 	"fmt"
-	"net/http"
+	"github.com/rmay1er/reptiloid-go/internal/utils"
 	"io"
+	"net/http"
 )
 
 func NewClient[T any](model replicateModel[T], apikey string) *client[T] {
 	return &client[T]{model: model, apikey: apikey}
 }
 
-func (c *client[T]) MockGenerateImage(input T) (string, error) {
-	// Здесь логика обращения по API с использованием c.model и input
-	result := fmt.Sprintf("Generating image for model %s with input: %+v\n", c.model, input)
-	return result, nil
-}
-
-func createApiReqUrl(model string) (string, error) {
-	modelUrl := fmt.Sprintf("https://api.replicate.com/v1/models/%s/predictions", model)
-	return modelUrl, nil
-}
-
 func NewReplicateModel[T any](id string) replicateModel[T] {
 	return replicateModel[T]{id: id}
 }
+
 
 func (c *client[T]) GenerateImage(input T) (responseOutput, error) {
 
@@ -33,7 +24,7 @@ func (c *client[T]) GenerateImage(input T) (responseOutput, error) {
 	id := c.model.id
 
 	// Создаём ссылку на модель
-	url, err := createApiReqUrl(id)
+	url, err := utils.CreateApiReqUrl(id)
 	if err != nil {
 		return responseOutput{}, err
 	}

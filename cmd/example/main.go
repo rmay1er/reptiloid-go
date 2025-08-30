@@ -2,30 +2,30 @@ package main
 
 import (
 	"fmt"
-	"github.com/rmay1er/reptiloid-go/internal/replicate"
-	"github.com/rmay1er/reptiloid-go/internal/replicate/models"
-	"os"
 	"github.com/aws/aws-sdk-go-v2/aws"
+	"github.com/rmay1er/reptiloid-go/reptiloid"
+	"github.com/rmay1er/reptiloid-go/reptiloid/models"
+	"os"
 
 	"github.com/joho/godotenv"
 )
 
 func main() {
 
-  // Load .env file
-  err := godotenv.Load()
-  if err != nil {
-    fmt.Println("Error loading .env file")
-  }
+	// Load .env file
+	err := godotenv.Load()
+	if err != nil {
+		fmt.Println("Error loading .env file")
+	}
 
-  // Get API Key from environment variable
-  var apiKey = os.Getenv("REPLICATE_API_TOKEN")
+	// Get API Key from environment variable
+	var apiKey = os.Getenv("REPLICATE_API_TOKEN")
 
 	//Init Model
 	var newmod = models.FluxSchnell
 
 	//Create Client
-	client := replicate.NewClient(newmod, apiKey)
+	client := reptiloid.NewClient(newmod, apiKey)
 
 	//Construct model input
 	input := models.FluxSchnellInput{
@@ -36,10 +36,9 @@ func main() {
 	//Generate image
 	image, err := client.GenerateImage(input)
 	if err != nil {
-    fmt.Printf("Error generating image: %v\n", err)
-    return
-  }
-
+		fmt.Printf("Error generating image: %v\n", err)
+		return
+	}
 
 	fmt.Printf("%+v\n", image.Output[0])
 }

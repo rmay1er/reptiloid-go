@@ -1,17 +1,16 @@
 package models
 
-import "github.com/rmay1er/reptiloid-go/internal/replicate"
+import "github.com/rmay1er/reptiloid-go/reptiloid"
 
 /*
 FluxSchnell is a fast model optimized for quick generation.
 */
-var FluxSchnell = replicate.NewReplicateModel[FluxSchnellInput]("black-forest-labs/flux-schnell")
+var FluxSchnell = reptiloid.NewReplicateModel[FluxSchnellInput]("black-forest-labs/flux-schnell")
 
 /*
 FluxDev is a model better suited for images containing text, though it is slightly more expensive and slower.
 */
-var FluxDev = replicate.NewReplicateModel[FluxDevInput]("black-forest-labs/flux-dev")
-
+var FluxDev = reptiloid.NewReplicateModel[FluxDevInput]("black-forest-labs/flux-dev")
 
 // FluxSchnellInput represents input parameters for the Flux Schnell model.
 // It contains various configuration options to control the image generation process.
