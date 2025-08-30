@@ -81,13 +81,7 @@ go run main.go
 
 ## 📦 Available Models & Future Plans
 
-### Supported Models
-
-
-
-### Planned Models & Features
-
-#### Text Models (coming soon)
+#### Text Models
 - ✅ **GPT-5**: Next-generation large language model with enhanced understanding and creativity.
 - ✅ **GPT-5-mini**: Lightweight version optimized for faster responses and lower costs.
 - ✅ **GPT-5-nano**: Ultra-compact model suitable for mobile and edge applications.
@@ -131,7 +125,6 @@ The library returns a URL where your image is stored. You can download it or sha
 
 ### How much does it cost?
 Check [Replicate's pricing](https://replicate.com/pricing). Most images cost a few cents.
-
 
 ## 🛠️ Development
 
