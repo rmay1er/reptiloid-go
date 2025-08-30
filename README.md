@@ -38,8 +38,8 @@ import (
     "fmt"
     "os"
     "github.com/joho/godotenv"
-    "reptiloid-go/internal/replicate"
-    "reptiloid-go/internal/replicate/models"
+    "reptiloid-go/internal/reptiloid-go"
+    "reptiloid-go/internal/reptiloid-go/models"
 )
 
 func main() {
