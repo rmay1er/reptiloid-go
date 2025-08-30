@@ -12,7 +12,7 @@ A friendly Go library for generating AI images using Replicate's models. No comp
 ### Installation
 
 ```bash
-go get github.com/your-username/reptiloid-go
+go get github.com/rmay1er/reptiloid-go
 ```
 
 ### Get Your API Token

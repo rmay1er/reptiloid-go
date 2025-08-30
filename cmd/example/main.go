@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"reptiloid-go/internal/replicate"
-	"reptiloid-go/internal/replicate/models"
+	"reptiloid-go/internal/replicate/internal/replicate"
+	"github.com/rmay1er/reptiloid-go/internal/replicate/models"
 	"os"
 	"github.com/aws/aws-sdk-go-v2/aws"
 
