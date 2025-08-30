@@ -23,6 +23,6 @@ type responseOutput struct {
  Output    []string `json:"output"`
  DataRemoved bool   `json:"data_removed"`
  Error     *string  `json:"error"`
- Status    int   `json:"status"`
+ Status    any   `json:"status"`
  CreatedAt string   `json:"created_at"`
 }

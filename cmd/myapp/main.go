@@ -5,6 +5,7 @@ import (
 	"reptiloid-go/internal/replicate"
 	"reptiloid-go/internal/replicate/models"
 	"os"
+	"github.com/aws/aws-sdk-go-v2/aws"
 
 	"github.com/joho/godotenv"
 )
@@ -27,7 +28,8 @@ func main() {
 
 	//Construct model input
 	input := models.FluxSchnellInput{
-		Prompt:      "Orange apple on a wooden table, photorealistic, high detail",
+		Prompt:      "Blue pineapple with glowing slime around",
+		AspectRatio: aws.String("16:9"),
 	}
 
 	//Generate image
@@ -38,5 +40,5 @@ func main() {
   }
 
 
-	fmt.Printf("%+v\n", image)
+	fmt.Printf("%+v\n", image.Output[0])
 }

@@ -49,6 +49,8 @@ func (c *client[T]) GenerateImage(input T) (responseOutput, error) {
 		return responseOutput{}, err
 	}
 
+	fmt.Println(string(jsonData))
+
 	// Создаем POST запрос с телом
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonData))
 	if err != nil {

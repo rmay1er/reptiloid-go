@@ -20,31 +20,31 @@ type FluxSchnellInput struct {
 	Prompt string `json:"prompt"`
 
 	// AspectRatio defines the width-to-height ratio of the output image. Common values are "1:1", "16:9", etc., to control composition.
-	AspectRatio string `json:"aspect_ratio"`
+	AspectRatio *string `json:"aspect_ratio,omitempty"`
 
 	// NumOutputs specifies how many images to generate per request. Adjust based on your need for variety versus cost.
-	NumOutputs int `json:"num_outputs"`
+	NumOutputs *int `json:"num_outputs,omitempty"`
 
 	// NumInferenceSteps controls the number of steps in the diffusion process. Higher values yield finer detail but increase runtime.
-	NumInferenceSteps int `json:"num_inference_steps"`
+	NumInferenceSteps *int `json:"num_inference_steps,omitempty"`
 
 	// Seed sets the random number seed for reproducibility. Use a fixed seed to regenerate the same output consistently.
-	Seed int `json:"seed"`
+	Seed *int `json:"seed,omitempty"`
 
 	// OutputFormat determines the file format of the generated image, such as "png" or "jpeg".
-	OutputFormat string `json:"output_format"`
+	OutputFormat *string `json:"output_format,omitempty"`
 
 	// OutputQuality sets the quality level of the output image, typically on a scale from 1 (lowest) to 100 (highest).
-	OutputQuality int `json:"output_quality"`
+	OutputQuality *int `json:"output_quality,omitempty"`
 
 	// GoFast enables a faster but potentially less precise generation mode, balancing speed and output fidelity.
-	GoFast bool `json:"go_fast"`
+	GoFast *bool `json:"go_fast,omitempty"`
 
 	// Megapixels specifies the desired resolution in megapixels, influencing image size and detail.
-	Megapixels string `json:"megapixels"`
+	Megapixels *string `json:"megapixels,omitempty"`
 
 	// DisableSafetyChecker disables built-in content filters. Use with caution to avoid inappropriate content generation.
-	DisableSafetyChecker bool `json:"disable_safety_checker"`
+	DisableSafetyChecker *bool `json:"disable_safety_checker,omitempty"`
 }
 
 // FluxDevInput represents input parameters for the Flux Dev model.
