@@ -1,5 +1,6 @@
 package replicate
 
+
 type client[T any] struct {
 	model  replicateModel[T]
 	apikey string
@@ -22,6 +23,6 @@ type responseOutput struct {
  Output    []string `json:"output"`
  DataRemoved bool   `json:"data_removed"`
  Error     *string  `json:"error"`
- Status    string   `json:"status"`
+ Status    int   `json:"status"`
  CreatedAt string   `json:"created_at"`
 }

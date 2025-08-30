@@ -20,19 +20,23 @@ func main() {
   var apiKey = os.Getenv("REPLICATE_API_TOKEN")
 
 	//Init Model
-	var newmod = models.FluxDev
+	var newmod = models.FluxSchnell
 
 	//Create Client
 	client := replicate.NewClient(newmod, apiKey)
 
 	//Construct model input
-	input := models.FluxDevInput{
+	input := models.FluxSchnellInput{
 		Prompt:      "Orange apple on a wooden table, photorealistic, high detail",
 	}
 
 	//Generate image
-	image, _ := client.GenerateImage(input)
+	image, err := client.GenerateImage(input)
+	if err != nil {
+    fmt.Printf("Error generating image: %v\n", err)
+    return
+  }
 
 
-	fmt.Printf("%+v\n", image.Output[0])
+	fmt.Printf("%+v\n", image)
 }
