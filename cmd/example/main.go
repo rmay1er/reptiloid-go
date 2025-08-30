@@ -18,6 +18,7 @@ func main() {
     fmt.Println("Error loading .env file")
   }
 
+  // Get API Key from environment variable
   var apiKey = os.Getenv("REPLICATE_API_TOKEN")
 
 	//Init Model

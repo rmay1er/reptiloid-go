@@ -54,42 +54,42 @@ type FluxDevInput struct {
 	Prompt string `json:"prompt"`
 
 	// Seed is the random seed for reproducibility of results. Use -1 for random seed.
-	Seed int `json:"seed"`
+	Seed *int `json:"seed,omitempty"`
 
 	// Image is the input image for image to image mode. The aspect ratio of your output will match this image.
-	Image string `json:"image"`
+	Image *string `json:"image,omitempty"`
 
 	// AspectRatio defines the aspect ratio of the output image.
 	// Options include "1:1", "16:9", "21:9", "3:2", "2:3", "4:5", "5:4", "3:4", "4:3", "9:16", "9:21".
-	AspectRatio string `json:"aspect_ratio"`
+	AspectRatio *string `json:"aspect_ratio,omitempty"`
 
 	// NumOutputs specifies how many images to generate per request.
-	NumOutputs int `json:"num_outputs"`
+	NumOutputs *int `json:"num_outputs,omitempty"`
 
 	// PromptStrength is the prompt strength when using img2img. 1.0 corresponds to full destruction of information in image.
-	PromptStrength float64 `json:"prompt_strength"`
+	PromptStrength *float64 `json:"prompt_strength,omitempty"`
 
 	// NumInferenceSteps sets the number of inference steps to perform during generation.
-	NumInferenceSteps int `json:"num_inference_steps"`
+	NumInferenceSteps *int `json:"num_inference_steps,omitempty"`
 
 	// Guidance is the guidance scale used to influence image generation.
 	// Lower values can give more realistic images. Good values to try are 2, 2.5, 3 and 3.5.
-	Guidance float64 `json:"guidance"`
+	Guidance *float64 `json:"guidance,omitempty"`
 
 	// DisableSafetyChecker disables built-in content filters. Use with caution.
-	DisableSafetyChecker bool `json:"disable_safety_checker"`
+	DisableSafetyChecker *bool `json:"disable_safety_checker,omitempty"`
 
 	// GoFast enables faster predictions with additional optimizations.
-	GoFast bool `json:"go_fast"`
+	GoFast *bool `json:"go_fast,omitempty"`
 
 	// Megapixels is the approximate number of megapixels for generated image, e.g. "1" or "0.25".
-	Megapixels string `json:"megapixels"`
+	Megapixels *string `json:"megapixels,omitempty"`
 
 	// OutputFormat sets the file format of the generated image.
 	// Supported formats are "webp", "jpg", and "png".
-	OutputFormat string `json:"output_format"`
+	OutputFormat *string `json:"output_format,omitempty"`
 
 	// OutputQuality determines the output quality for jpg and webp formats, ranging from 0 (lowest) to 100 (highest).
 	// Not relevant for png outputs.
-	OutputQuality int `json:"output_quality"`
+	OutputQuality *int `json:"output_quality,omitempty"`
 }
