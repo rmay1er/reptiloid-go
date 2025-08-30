@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/rmay1er/reptiloid-go/reptiloid"
-	"github.com/rmay1er/reptiloid-go/reptiloid/models"
+	models "github.com/rmay1er/reptiloid-go/reptiloid/models/image"
 	"os"
 
 	"github.com/joho/godotenv"
