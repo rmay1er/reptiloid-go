@@ -1,4 +1,5 @@
 # Reptiloid Go - Simple Replicate API Client for Go
+For the Russian version of this README, see the [README 🇷🇺](README-ru.md).
 
 A friendly Go library for generating AI images using Replicate's models. No complex setup, just simple and clean code.
 
