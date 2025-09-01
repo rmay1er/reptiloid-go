@@ -63,7 +63,7 @@ func main() {
     }
 
     // Сгенерировать изображение!
-    result, err := client.GenerateImage(input)
+    result, err := client.Generate(input)
     if err != nil {
         fmt.Printf("Ой! Что-то пошло не так: %v\n", err)
         return

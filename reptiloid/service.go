@@ -19,7 +19,7 @@ func NewReplicateModel[T any](id string) replicateModel[T] {
 	return replicateModel[T]{id: id}
 }
 
-// GenerateImage sends a request to generate an image based on the input parameters.
+// Generate sends a request to generate an image based on the input parameters.
 // It constructs the HTTP POST request, adds necessary headers, and parses the response.
 func (c *client[T]) Generate(input T) (responseOutput, error) {
 
