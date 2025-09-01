@@ -3,7 +3,6 @@ package reptiloid
 import (
 	"bytes"
 	"encoding/json/v2"
-	"fmt"
 	"github.com/rmay1er/reptiloid-go/internal/utils"
 	"io"
 	"net/http"
@@ -42,8 +41,6 @@ func (c *client[T]) Generate(input T) (responseOutput, error) {
 	if err != nil {
 		return responseOutput{}, err
 	}
-
-	fmt.Println(string(jsonData))
 
 	// Создаем POST запрос с телом
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonData))
