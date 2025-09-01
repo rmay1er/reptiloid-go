@@ -34,7 +34,7 @@ func main() {
 	}
 
 	//Generate image
-	image, err := client.GenerateImage(input)
+	image, err := client.Generate(input)
 	if err != nil {
 		fmt.Printf("Error generating image: %v\n", err)
 		return

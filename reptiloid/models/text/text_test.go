@@ -33,7 +33,7 @@ func TestTextModel(t *testing.T) {
 	}
 
 	// Generate a response from the model
-	output, err := client.GenerateImage(input)
+	output, err := client.Generate(input)
 	if err != nil {
 		t.Fatalf("Error generating response: %v", err)
 	}

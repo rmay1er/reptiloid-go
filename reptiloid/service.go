@@ -21,7 +21,7 @@ func NewReplicateModel[T any](id string) replicateModel[T] {
 
 // GenerateImage sends a request to generate an image based on the input parameters.
 // It constructs the HTTP POST request, adds necessary headers, and parses the response.
-func (c *client[T]) GenerateImage(input T) (responseOutput, error) {
+func (c *client[T]) Generate(input T) (responseOutput, error) {
 
 	// Получаем ID модели
 	id := c.model.id
