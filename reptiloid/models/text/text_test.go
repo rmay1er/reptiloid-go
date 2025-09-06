@@ -25,7 +25,7 @@ func TestTextModel(t *testing.T) {
 	model := text.GPT5nano
 
 	// Create a new client with the model and API key
-	client := reptiloid.NewClient(model, apiKey)
+	client := reptiloid.NewClient(&model, apiKey)
 
 	// Define the input for the model
 	input := text.GPT5SeriesInput{
@@ -33,7 +33,7 @@ func TestTextModel(t *testing.T) {
 	}
 
 	// Generate a response from the model
-	output, err := client.Generate(input)
+	output, err := client.Generate(&input)
 	if err != nil {
 		t.Fatalf("Error generating response: %v", err)
 	}

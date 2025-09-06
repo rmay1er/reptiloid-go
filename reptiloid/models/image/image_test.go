@@ -25,7 +25,7 @@ func TestImageModel(t *testing.T) {
 	model := image.FluxDev
 
 	// Create a new client with the model and API key
-	client := reptiloid.NewClient(model, apiKey)
+	client := reptiloid.NewClient(&model, apiKey)
 
 	// Define the input for the model
 	input := image.FluxDevInput{
@@ -34,7 +34,7 @@ func TestImageModel(t *testing.T) {
 	}
 
 	// Generate an image from the model
-	output, err := client.Generate(input)
+	output, err := client.Generate(&input)
 	if err != nil {
 		t.Fatalf("Error generating image: %v", err)
 	}

@@ -21,11 +21,7 @@ func main() {
 	// Get API Key from environment variable
 	var apiKey = os.Getenv("REPLICATE_API_TOKEN")
 
-	//Init Model
-	var newmod = models.FluxSchnell
-
-	//Create Client
-	client := reptiloid.NewClient(newmod, apiKey)
+	client := reptiloid.NewClient(&models.FluxSchnell, apiKey)
 
 	//Construct model input
 	input := models.FluxSchnellInput{
@@ -34,7 +30,7 @@ func main() {
 	}
 
 	//Generate image
-	image, err := client.Generate(input)
+	image, err := client.Generate(&input)
 	if err != nil {
 		fmt.Printf("Error generating image: %v\n", err)
 		return

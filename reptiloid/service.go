@@ -9,21 +9,24 @@ import (
 )
 
 // NewClient creates a new client with the specified replicate model and API key.
-func NewClient[T any](model replicateModel[T], apikey string) *client[T] {
-	return &client[T]{model: model, apikey: apikey}
+func NewClient[T any](model *ReplicateModel[T], apikey string) *Client[T] {
+	return &Client[T]{model: *model, apikey: apikey}
 }
 
-// NewReplicateModel creates a new replicate model with the given model ID.
-func NewReplicateModel[T any](id string) replicateModel[T] {
-	return replicateModel[T]{id: id}
+func NewReplicateModel[T any](id string, cost ...float64) ReplicateModel[T] {
+	model := ReplicateModel[T]{Id: id}
+	if len(cost) > 0 && cost[0] != 0 {
+		model.Cost = cost[0]
+	}
+	return model
 }
 
 // Generate sends a request to generate an image based on the input parameters.
 // It constructs the HTTP POST request, adds necessary headers, and parses the response.
-func (c *client[T]) Generate(input T) (responseOutput, error) {
+func (c *Client[T]) Generate(input *T) (responseOutput, error) {
 
 	// Получаем ID модели
-	id := c.model.id
+	id := c.model.Id
 
 	// Создаём ссылку на модель
 	url, err := utils.CreateApiReqUrl(id)
@@ -33,7 +36,7 @@ func (c *client[T]) Generate(input T) (responseOutput, error) {
 
 	// Формируем тело запроса
 	body := requestBody[T]{
-		Input: input,
+		Input: *input,
 	}
 
 	// Преобразуем тело в JSON

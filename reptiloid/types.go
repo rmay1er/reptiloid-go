@@ -1,13 +1,16 @@
 package reptiloid
 
-type client[T any] struct {
-	model  replicateModel[T]
+type Client[T any] struct {
+	model  ReplicateModel[T]
 	apikey string
 }
 
 // Generic model structure with input type T
-type replicateModel[T any] struct {
-	id string
+type ReplicateModel[T any] struct {
+	//Id of replicate model
+	Id string
+	//Price per 1 image or 1 million tokens
+	Cost float64
 }
 
 type requestBody[T any] struct {
