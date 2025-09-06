@@ -3,18 +3,20 @@ package reptiloid
 import (
 	"bytes"
 	"encoding/json/v2"
-	"github.com/rmay1er/reptiloid-go/internal/utils"
 	"io"
 	"net/http"
+	"github.com/rmay1er/reptiloid-go/internal/utils"
 )
 
 // NewClient creates a new client with the specified replicate model and API key.
-func NewClient[T any](model *ReplicateModel[T], apikey string) *Client[T] {
-	return &Client[T]{model: *model, apikey: apikey}
+func NewClient[T any](model *replicateModel[T], apikey string) *client[T] {
+	return &client[T]{Model: model, apikey: apikey}
 }
 
-func NewReplicateModel[T any](id string, cost ...float64) ReplicateModel[T] {
-	model := ReplicateModel[T]{Id: id}
+// NewReplicateModel creates a new replicateModel instance with the given model ID.
+// Optionally, a cost value can be provided; if not, the cost defaults to zero.
+func NewReplicateModel[T any](id string, cost ...float64) replicateModel[T] {
+	model := replicateModel[T]{Id: id}
 	if len(cost) > 0 && cost[0] != 0 {
 		model.Cost = cost[0]
 	}
@@ -23,10 +25,10 @@ func NewReplicateModel[T any](id string, cost ...float64) ReplicateModel[T] {
 
 // Generate sends a request to generate an image based on the input parameters.
 // It constructs the HTTP POST request, adds necessary headers, and parses the response.
-func (c *Client[T]) Generate(input *T) (responseOutput, error) {
+func (c *client[T]) Generate(input *T) (responseOutput, error) {
 
 	// Получаем ID модели
-	id := c.model.Id
+	id := c.Model.Id
 
 	// Создаём ссылку на модель
 	url, err := utils.CreateApiReqUrl(id)
@@ -44,7 +46,6 @@ func (c *Client[T]) Generate(input *T) (responseOutput, error) {
 	if err != nil {
 		return responseOutput{}, err
 	}
-
 	// Создаем POST запрос с телом
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonData))
 	if err != nil {
