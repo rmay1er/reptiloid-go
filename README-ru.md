@@ -55,7 +55,7 @@ func main() {
     model := image.FluxSchnell
 
     // Создать клиент
-    client := replicate.NewClient(model, apiKey)
+    client := replicate.NewClient(&model, apiKey)
 
     // Описать изображение
     input := models.FluxSchnellInput{
@@ -63,7 +63,7 @@ func main() {
     }
 
     // Сгенерировать изображение!
-    result, err := client.Generate(input)
+    result, err := client.Generate(&input)
     if err != nil {
         fmt.Printf("Ой! Что-то пошло не так: %v\n", err)
         return
