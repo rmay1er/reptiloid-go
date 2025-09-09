@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.4.102] - 2025-09-09
+### Fix
+- Capitalize exported types and methods in reptiloid package
+
 ## [v0.4.101] - 2025-09-06
 ### Changed
 - Use pointers for models and inputs in client API and examples
