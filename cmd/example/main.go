@@ -22,7 +22,6 @@ func main() {
 	// Get API Key from environment variable
 	var apiKey = os.Getenv("REPLICATE_API_TOKEN")
 
-
 	client := reptiloid.NewClient(&models.FluxSchnell, apiKey)
 
 	// Construct model input

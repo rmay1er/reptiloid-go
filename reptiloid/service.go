@@ -5,18 +5,19 @@ import (
 	"encoding/json/v2"
 	"io"
 	"net/http"
+
 	"github.com/rmay1er/reptiloid-go/internal/utils"
 )
 
 // NewClient creates a new client with the specified replicate model and API key.
-func NewClient[T any](model *replicateModel[T], apikey string) *client[T] {
-	return &client[T]{Model: model, apikey: apikey}
+func NewClient[T any](model *ReplicateModel[T], apikey string) *Client[T] {
+	return &Client[T]{Model: model, apikey: apikey}
 }
 
 // NewReplicateModel creates a new replicateModel instance with the given model ID.
 // Optionally, a cost value can be provided; if not, the cost defaults to zero.
-func NewReplicateModel[T any](id string, cost ...float64) replicateModel[T] {
-	model := replicateModel[T]{Id: id}
+func NewReplicateModel[T any](id string, cost ...float64) ReplicateModel[T] {
+	model := ReplicateModel[T]{Id: id}
 	if len(cost) > 0 && cost[0] != 0 {
 		model.Cost = cost[0]
 	}
@@ -25,7 +26,7 @@ func NewReplicateModel[T any](id string, cost ...float64) replicateModel[T] {
 
 // Generate sends a request to generate an image based on the input parameters.
 // It constructs the HTTP POST request, adds necessary headers, and parses the response.
-func (c *client[T]) Generate(input *T) (responseOutput, error) {
+func (c *Client[T]) Generate(input *T) (responseOutput, error) {
 
 	// Получаем ID модели
 	id := c.Model.Id
