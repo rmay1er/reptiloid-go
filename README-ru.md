@@ -58,12 +58,12 @@ func main() {
     client := replicate.NewClient(&model, apiKey)
 
     // Описать изображение
-    input := models.FluxSchnellInput{
+    input := &models.FluxSchnellInput{
         Prompt:      "Милый робот играет на гитаре в парке",
     }
 
     // Сгенерировать изображение!
-    result, err := client.Generate(&input)
+    result, err := client.Generate(input)
     if err != nil {
         fmt.Printf("Ой! Что-то пошло не так: %v\n", err)
         return

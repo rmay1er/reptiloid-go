@@ -24,12 +24,12 @@ func main() {
 	client := reptiloid.NewClient(&models.FluxSchnell, apiKey)
 
 	// Construct model input
-	input := models.FluxSchnellInput{
+	input := &models.FluxSchnellInput{
 		Prompt:      "Blue pineapple with glowing slime around",
 		AspectRatio: "16:9",
 	}
 
-	image, _ := client.Generate(&input)
+	image, _ := client.Generate(input)
 
 	if err != nil {
 		fmt.Printf("Error generating image: %v\n", err)

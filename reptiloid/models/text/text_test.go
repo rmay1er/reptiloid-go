@@ -28,13 +28,13 @@ func TestTextModel(t *testing.T) {
 	client := reptiloid.NewClient(&model, apiKey)
 
 	// Define the input for the model
-	input := text.GPT5SeriesInput{
+	input := &text.GPT5SeriesInput{
 		Prompt:       "If you get this, respond with somthing funny. about it on russian language",
 		SystemPrompt: "Answer like king of Orcs",
 	}
 
 	// Generate a response from the model
-	output, err := client.Generate(&input)
+	output, err := client.Generate(input)
 	if err != nil {
 		t.Fatalf("Error generating response: %v", err)
 	}

@@ -27,13 +27,13 @@ func TestImageModel(t *testing.T) {
 	client := reptiloid.NewClient(&model, apiKey)
 
 	// Define the input for the model
-	input := image.FluxDevInput{
+	input := &image.FluxDevInput{
 		Prompt:      "A fantasy landscape, trending on artstation",
 		AspectRatio: "16:9",
 	}
 
 	// Generate an image from the model
-	output, err := client.Generate(&input)
+	output, err := client.Generate(input)
 	if err != nil {
 		t.Fatalf("Error generating image: %v", err)
 	}
