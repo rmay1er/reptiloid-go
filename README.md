@@ -7,7 +7,7 @@ A friendly Go library for generating AI images using Replicate's models. No comp
 
 ### Prerequisites
 
-- Go 1.25 or later
+- Go 1.25 or later (required for the new JSON-V2 support and generics)
 - A [Replicate](https://replicate.com) account and API token
 
 ### Installation
@@ -133,7 +133,16 @@ Check [Replicate's pricing](https://replicate.com/pricing). Most images cost a f
 
 Want to use a different Replicate model? Just add it to the models package!
 
+Here is an example of a custom input struct `MyInput` that includes a prompt, a system prompt, and some typical neural network settings like guidance scale and number of inference steps:
+
 ```go
+type MyInput struct {
+    Prompt       string  `json:"prompt"`
+    SystemPrompt string  `json:"system_prompt,omitempty"`
+    Guidance     float64 `json:"guidance_scale,omitempty"`
+    Steps        int     `json:"num_inference_steps,omitempty"`
+}
+
 // In internal/replicate/models/models.go
 var MyNewModel = replicate.NewReplicateModel[MyInput]("username/model-name")
 ```
