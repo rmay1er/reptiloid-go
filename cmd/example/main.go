@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/rmay1er/reptiloid-go/reptiloid"
 	models "github.com/rmay1er/reptiloid-go/reptiloid/models/image"
 
@@ -27,7 +26,7 @@ func main() {
 	// Construct model input
 	input := models.FluxSchnellInput{
 		Prompt:      "Blue pineapple with glowing slime around",
-		AspectRatio: aws.String("16:9"),
+		AspectRatio: "16:9",
 	}
 
 	image, _ := client.Generate(&input)
@@ -37,5 +36,5 @@ func main() {
 		return
 	}
 	fmt.Printf("%+v\n", &input)
-	fmt.Printf("%+v\n", image)
+	fmt.Printf("%+v\n", image.Output[0])
 }

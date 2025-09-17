@@ -5,7 +5,6 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/joho/godotenv"
 	"github.com/rmay1er/reptiloid-go/reptiloid"
 	"github.com/rmay1er/reptiloid-go/reptiloid/models/image"
@@ -30,7 +29,7 @@ func TestImageModel(t *testing.T) {
 	// Define the input for the model
 	input := image.FluxDevInput{
 		Prompt:      "A fantasy landscape, trending on artstation",
-		AspectRatio: aws.String("16:9"),
+		AspectRatio: "16:9",
 	}
 
 	// Generate an image from the model

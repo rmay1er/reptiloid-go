@@ -24,31 +24,31 @@ type FluxSchnellInput struct {
 
 	// AspectRatio specifies the width-to-height ratio of the output image.
 	// Allowed values include "21:9", "16:9", "3:2", "4:3", "5:4", "1:1", "4:5", "3:4", "2:3", "9:16", "9:21".
-	AspectRatio *string `json:"aspect_ratio,omitempty"`
+	AspectRatio string `json:"aspect_ratio"`
 
 	// NumOutputs defines how many images to generate.
-	NumOutputs *int `json:"num_outputs,omitempty"`
+	NumOutputs int `json:"num_outputs"`
 
 	// NumInferenceSteps defines the number of steps in the diffusion process.
-	NumInferenceSteps *int `json:"num_inference_steps,omitempty"`
+	NumInferenceSteps int `json:"num_inference_steps"`
 
 	// Seed sets the random seed to make generation reproducible.
-	Seed *int `json:"seed,omitempty"`
+	Seed int `json:"seed"`
 
 	// OutputFormat sets the file format for the generated images ("jpg" or "png").
-	OutputFormat *string `json:"output_format,omitempty"`
+	OutputFormat string `json:"output_format"`
 
 	// OutputQuality sets the quality of the output images (1-100).
-	OutputQuality *int `json:"output_quality,omitempty"`
+	OutputQuality int `json:"output_quality"`
 
 	// GoFast enables faster but less precise generation.
-	GoFast *bool `json:"go_fast,omitempty"`
+	GoFast bool `json:"go_fast"`
 
 	// Megapixels controls the resolution of the generated image.
-	Megapixels *string `json:"megapixels,omitempty"`
+	Megapixels string `json:"megapixels"`
 
 	// DisableSafetyChecker disables built-in content filters.
-	DisableSafetyChecker *bool `json:"disable_safety_checker,omitempty"`
+	DisableSafetyChecker bool `json:"disable_safety_checker"`
 }
 
 // FluxDevInput represents input parameters for the Flux Dev model,
@@ -58,43 +58,43 @@ type FluxDevInput struct {
 	Prompt string `json:"prompt"`
 
 	// Seed is the random seed for reproducibility. Use -1 for random seed.
-	Seed *int `json:"seed,omitempty"`
+	Seed int `json:"seed"`
 
 	// Image is the URI of an image to guide generation along with the text prompt.
-	Image *string `json:"image,omitempty"`
+	Image string `json:"image"`
 
 	// AspectRatio defines the aspect ratio of the output image.
 	// Allowed values are the same as FluxSchnellInput plus "21:9".
-	AspectRatio *string `json:"aspect_ratio,omitempty"`
+	AspectRatio string `json:"aspect_ratio"`
 
 	// NumOutputs specifies how many images to generate.
-	NumOutputs *int `json:"num_outputs,omitempty"`
+	NumOutputs int `json:"num_outputs"`
 
 	// PromptStrength blends the influence of the prompt and image.
 	// 1.0 means fully replacing image information.
-	PromptStrength *float64 `json:"prompt_strength,omitempty"`
+	PromptStrength float64 `json:"prompt_strength"`
 
 	// NumInferenceSteps sets the number of diffusion steps.
-	NumInferenceSteps *int `json:"num_inference_steps,omitempty"`
+	NumInferenceSteps int `json:"num_inference_steps"`
 
 	// Guidance controls the influence of the prompt on generation.
 	// Lower values produce more realistic images; try values 2 to 3.5.
-	Guidance *float64 `json:"guidance,omitempty"`
+	Guidance float64 `json:"guidance"`
 
 	// DisableSafetyChecker disables content filters.
-	DisableSafetyChecker *bool `json:"disable_safety_checker,omitempty"`
+	DisableSafetyChecker bool `json:"disable_safety_checker"`
 
 	// GoFast enables faster generation with optimizations.
-	GoFast *bool `json:"go_fast,omitempty"`
+	GoFast bool `json:"go_fast"`
 
 	// Megapixels controls output image resolution.
-	Megapixels *string `json:"megapixels,omitempty"`
+	Megapixels string `json:"megapixels"`
 
 	// OutputFormat specifies the file format; supports "jpg", "png", and "webp".
-	OutputFormat *string `json:"output_format,omitempty"`
+	OutputFormat string `json:"output_format"`
 
 	// OutputQuality is the quality for jpg and webp (0-100), ignored for png.
-	OutputQuality *int `json:"output_quality,omitempty"`
+	OutputQuality int `json:"output_quality"`
 }
 
 // FluxUltraInput represents input parameters for the Flux 1.1 Pro Ultra model.
@@ -104,32 +104,32 @@ type FluxUltraInput struct {
 	Prompt string `json:"prompt"`
 
 	// Seed is the random seed for reproducibility.
-	Seed *int `json:"seed,omitempty"`
+	Seed int `json:"seed"`
 
 	// ImagePrompt is a URI to an image used alongside the prompt to guide generation composition.
 	// Must be jpeg, png, gif, or webp.
-	ImagePrompt *string `json:"image_prompt,omitempty"`
+	ImagePrompt string `json:"image_prompt"`
 
 	// AspectRatio defines the output image aspect ratio.
 	// Allowed values: "21:9", "16:9", "3:2", "4:3", "5:4", "1:1", "4:5", "3:4", "2:3", "9:16", "9:21".
-	AspectRatio *string `json:"aspect_ratio,omitempty"`
+	AspectRatio string `json:"aspect_ratio"`
 
 	// NumOutputs determines how many images to generate.
-	NumOutputs *int `json:"num_outputs,omitempty"`
+	NumOutputs int `json:"num_outputs"`
 
 	// ImagePromptStrength blends the influence between text prompt and image prompt.
 	// Ranges from 0 (only text) to 1 (only image). Default is 0.1.
-	ImagePromptStrength *float64 `json:"image_prompt_strength,omitempty"`
+	ImagePromptStrength float64 `json:"image_prompt_strength"`
 
 	// SafetyTolerance sets the tolerance level for safety filters.
 	// Values range from 1 (strict) to 6 (permissive). Default is 2.
-	SafetyTolerance *int `json:"safety_tolerance,omitempty"`
+	SafetyTolerance int `json:"safety_tolerance"`
 
 	// Raw when true generates less processed, more natural-looking images.
-	Raw *bool `json:"raw,omitempty"`
+	Raw bool `json:"raw"`
 
 	// OutputFormat specifies output image format: "jpg" or "png".
-	OutputFormat *string `json:"output_format,omitempty"`
+	OutputFormat string `json:"output_format"`
 }
 
 // FluxProInput represents input parameters for the Flux 1.1 Pro model.
@@ -138,35 +138,35 @@ type FluxProInput struct {
 	Prompt string `json:"prompt"`
 
 	// Seed is the random seed for reproducibility.
-	Seed *int `json:"seed,omitempty"`
+	Seed int `json:"seed"`
 
 	// ImagePrompt is a URI of an image to guide generation composition.
 	// Must be jpeg, png, gif, or webp.
-	ImagePrompt *string `json:"image_prompt,omitempty"`
+	ImagePrompt string `json:"image_prompt"`
 
 	// AspectRatio defines the output image aspect ratio.
 	// Allowed values: "custom", "1:1", "16:9", "3:2", "2:3", "4:5", "5:4", "9:16", "3:4", "4:3".
-	AspectRatio *string `json:"aspect_ratio,omitempty"`
+	AspectRatio string `json:"aspect_ratio"`
 
 	// NumOutputs determines how many images to generate.
-	NumOutputs *int `json:"num_outputs,omitempty"`
+	NumOutputs int `json:"num_outputs"`
 
 	// SafetyTolerance sets the tolerance level for safety filters.
 	// Values range from 1 (strict) to 6 (permissive).
-	SafetyTolerance *int `json:"safety_tolerance,omitempty"`
+	SafetyTolerance int `json:"safety_tolerance"`
 
 	// PromptUpsampling when true modifies the prompt automatically for more creative generation.
-	PromptUpsampling *bool `json:"prompt_upsampling,omitempty"`
+	PromptUpsampling bool `json:"prompt_upsampling"`
 
 	// OutputFormat specifies output image format: "webp", "jpg", or "png".
-	OutputFormat *string `json:"output_format,omitempty"`
+	OutputFormat string `json:"output_format"`
 
 	// OutputQuality sets the quality of output images (0 to 100).
-	OutputQuality *int `json:"output_quality,omitempty"`
+	OutputQuality int `json:"output_quality"`
 
 	// Width for custom aspect ratio, multiple of 32, between 256 and 1440.
-	Width *int `json:"width,omitempty"`
+	Width int `json:"width"`
 
 	// Height for custom aspect ratio, multiple of 32, between 256 and 1440.
-	Height *int `json:"height,omitempty"`
+	Height int `json:"height"`
 }

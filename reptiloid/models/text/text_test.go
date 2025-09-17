@@ -29,7 +29,8 @@ func TestTextModel(t *testing.T) {
 
 	// Define the input for the model
 	input := text.GPT5SeriesInput{
-		Prompt: "If you get this, respond with somthing funny. about it on russian language",
+		Prompt:       "If you get this, respond with somthing funny. about it on russian language",
+		SystemPrompt: "Answer like king of Orcs",
 	}
 
 	// Generate a response from the model

@@ -46,27 +46,27 @@ type GPT5SeriesInput struct {
 
 	// Messages is a JSON string representing a list of messages.
 	// If provided, Prompt and SystemPrompt are ignored.
-	Messages []map[string]any `json:"messages,omitempty"`
+	Messages []map[string]any `json:"messages"`
 
 	// SystemPrompt sets the assistant's behavior.
-	SystemPrompt *string `json:"system_prompt,omitempty"`
+	SystemPrompt string `json:"system_prompt"`
 
 	// ImageInput is a list of images (as URIs) to send to the model.
-	ImageInput []string `json:"image_input,omitempty"`
+	ImageInput []string `json:"image_input"`
 
 	// ReasoningEffort constrains effort on reasoning for GPT-5 models.
 	// Supported values: "minimal", "low", "medium", "high".
 	// "minimal" results in faster responses with less reasoning.
-	ReasoningEffort *string `json:"reasoning_effort,omitempty"`
+	ReasoningEffort string `json:"reasoning_effort"`
 
 	// Verbosity constrains the verbosity of the model's response.
 	// Supported values: "low", "medium", "high".
 	// Lower values yield concise responses; higher values yield more comprehensive answers.
-	Verbosity *string `json:"verbosity,omitempty"`
+	Verbosity string `json:"verbosity"`
 
 	// MaxCompletionTokens sets the max number of completion tokens to generate.
 	// For higher reasoning efforts, increase this to avoid empty responses.
-	MaxCompletionTokens *int `json:"max_completion_tokens,omitempty"`
+	MaxCompletionTokens int `json:"max_completion_tokens"`
 }
 
 /*
@@ -79,28 +79,28 @@ type GPT4SeriesInput struct {
 
 	// Messages is a JSON string representing a list of messages.
 	// If provided, prompt and system_prompt are ignored.
-	Messages []map[string]any `json:"messages,omitempty"`
+	Messages []map[string]any `json:"messages"`
 
 	// SystemPrompt sets the assistant's behavior.
-	SystemPrompt *string `json:"system_prompt,omitempty"`
+	SystemPrompt string `json:"system_prompt"`
 
 	// ImageInput is a list of images (as URIs) to send to the model.
-	ImageInput []string `json:"image_input,omitempty"`
+	ImageInput []string `json:"image_input"`
 
 	// Temperature controls the sampling temperature between 0 and 2.
-	Temperature *float64 `json:"temperature,omitempty"`
+	Temperature float64 `json:"temperature"`
 
 	// TopP is the nucleus sampling parameter between 0 and 1.
-	TopP *float64 `json:"top_p,omitempty"`
+	TopP float64 `json:"top_p"`
 
 	// MaxCompletionTokens sets the max number of completion tokens to generate.
-	MaxCompletionTokens *int `json:"max_completion_tokens,omitempty"`
+	MaxCompletionTokens int `json:"max_completion_tokens"`
 
 	// FrequencyPenalty penalizes repeated tokens; between -2 and 2.
-	FrequencyPenalty *float64 `json:"frequency_penalty,omitempty"`
+	FrequencyPenalty float64 `json:"frequency_penalty"`
 
 	// PresencePenalty penalizes new tokens based on whether they appear in the text so far; between -2 and 2.
-	PresencePenalty *float64 `json:"presence_penalty,omitempty"`
+	PresencePenalty float64 `json:"presence_penalty"`
 }
 
 /*
@@ -112,17 +112,17 @@ type DeepSeekInput struct {
 	Prompt string `json:"prompt"`
 
 	// MaxTokens is the maximum number of tokens to generate.
-	MaxTokens *int `json:"max_tokens,omitempty"`
+	MaxTokens int `json:"max_tokens"`
 
 	// Temperature controls the sampling temperature.
-	Temperature *float64 `json:"temperature,omitempty"`
+	Temperature float64 `json:"temperature"`
 
 	// PresencePenalty penalizes new tokens based on whether they appear in the text so far.
-	PresencePenalty *float64 `json:"presence_penalty,omitempty"`
+	PresencePenalty float64 `json:"presence_penalty"`
 
 	// FrequencyPenalty penalizes repeated tokens.
-	FrequencyPenalty *float64 `json:"frequency_penalty,omitempty"`
+	FrequencyPenalty float64 `json:"frequency_penalty"`
 
 	// TopP is the nucleus sampling parameter.
-	TopP *float64 `json:"top_p,omitempty"`
+	TopP float64 `json:"top_p"`
 }

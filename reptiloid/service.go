@@ -43,7 +43,7 @@ func (c *Client[T]) Generate(input *T) (responseOutput, error) {
 	}
 
 	// Преобразуем тело в JSON
-	jsonData, err := json.Marshal(body)
+	jsonData, err := json.Marshal(body, json.OmitZeroStructFields(true))
 	if err != nil {
 		return responseOutput{}, err
 	}
